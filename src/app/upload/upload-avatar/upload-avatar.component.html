@@ -1,0 +1,11 @@
+<div>
+    <input type="file" (change)="onFileChaged($event)"><br>
+    <!-- Khi nao thuc hien upload thi button nay moi hien, con co URL tuc upload thanh cong thi button nay an di-->
+    <mat-spinner *ngIf="checkUploadAvatar"></mat-spinner>
+    <button *ngIf="downloadURL?!selectedFile:selectedFile" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success" (click)="onUpLoad()">Upload Avatar
+        <mat-icon color="accent" matSuffix>upload_file</mat-icon>
+    </button>
+    <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+        <img [src]="downloadURL" style="width: 300px; height: auto">
+    </div>
+</div>

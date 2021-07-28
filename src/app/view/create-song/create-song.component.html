@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <form class="create-song" #f="ngForm" (ngSubmit)="f.form.valid &&ngSubmit()" novalidate>
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Name Song: </mat-label>
+                        <input matInput name="nameSong" [(ngModel)]="form.nameSong" #nameSong="ngModel" required>
+                        <mat-icon color="accent" matSuffix>music_note</mat-icon>
+                        <mat-error *ngIf="nameSong.hasError('required')">The name Song is required!</mat-error>
+                    </mat-form-field><br>
+                    <mat-form-field style="width: 350px" appearance="fill">
+                        <mat-label>Lyrics: </mat-label>
+                        <textarea matInput name="lyrics" [(ngModel)]="form.lyrics" #lyrics="ngModel" required></textarea>
+                        <mat-icon color="accent" matSuffix>playlist_add_check</mat-icon>
+                        <mat-error *ngIf="lyrics.hasError('required')">The lyrics is required!</mat-error>
+                    </mat-form-field><br>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Register
+                        <mat-icon color="accent" matSuffix>add_circle</mat-icon>
+                    </button>
+                </form>
+               <mat-error *ngIf="!isCheckUploadAvatar">Please Upload Avatar</mat-error>
+                <app-upload-avatar (giveURLtoCreate)="onChangeAvatar($event)"></app-upload-avatar><br>
+                <mat-error *ngIf="!isCheckUploadFile">Please Upload File</mat-error>
+                <app-upload-file (giveURLtoCreate)="onChangeFile($event)"></app-upload-file>
+            </mat-card>
+        </div>
+    </div>
+</div>
