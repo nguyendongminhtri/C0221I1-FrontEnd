@@ -4,8 +4,7 @@ export class Song {
   public lyrics: string;
   public avatarUrl: string;
   public mp3Url: string
-  constructor(id: number,nameSong: string, lyrics: string, avatarUrl: string, mp3Url: string) {
-    this.id = id;
+  constructor(nameSong: string, lyrics: string, avatarUrl: string, mp3Url: string) {
     this.nameSong = nameSong;
     this.lyrics = lyrics;
     this.avatarUrl = avatarUrl;

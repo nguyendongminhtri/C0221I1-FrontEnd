@@ -53,7 +53,9 @@ status = '';
     this.songService.deleteSongById(id).subscribe(data =>{
       if(JSON.stringify(this.deleteSuccess)==JSON.stringify(data)){
         this.status = 'Delete success!'
+        //Cach 1: Dung Reload()
         // window.location.reload();
+        //Cach 2: Goi lai Page khong Reload()
         const request = {page: 0, size: 90}
         this.getListRequest(request);
       }
