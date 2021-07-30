@@ -3,7 +3,11 @@
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px 0">
                 <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
-                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <mat-error class="alert alert-primary">{{status}}
+                        <button *ngIf="isRegisterSuccess" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success" routerLink="/login">Login
+                            <mat-icon color="accent" matSuffix>arrow_right_alt</mat-icon>
+                        </button>
+                    </mat-error>
                     <!-- NAME ssss-->
                     <mat-form-field style="width: 350px" appearance="outline">
                         <mat-label>Name</mat-label>

@@ -1,0 +1,19 @@
+.column {
+  float: left;
+  width: 33.3%;
+  padding: 10px 10px;
+}
+.card {
+  box-shadow: 12px 12px 2px 1px rgba(60,84,255,0.94);
+  text-align: center;
+  background-color: #a6e22e;
+}
+div.card {
+  padding: 10px;
+}
+.img {
+  border-bottom-right-radius: 8% 8%;
+  border-bottom-left-radius: 8% 8%;
+  border-top-left-radius: 8% 8%;
+  border-top-right-radius: 8% 8%;
+}

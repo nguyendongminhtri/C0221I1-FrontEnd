@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0 ">
+                <div class="row">
+                    <div class="column" *ngFor="let song of songs">
+                        <button *ngIf="isCheckAdmin" mat-icon-button aria-label="Example icon-button with a heart icon" (click)="deleteSongById(song.id)">
+                            <mat-icon color="warn">delete</mat-icon>
+                        </button>
+                        <div class="card">
+                            <i style="color: crimson">{{song.nameSong}}</i>
+                            <img class="img" [src]="song.avatarUrl">
+                        </div>
+                    </div>
+                </div>
+                <mat-paginator [pageSizeOptions]="[3,5,15,30,90]" [length]="totalElements" (page)="nextPage($event)"></mat-paginator>
+            </mat-card>
+        </div>
+    </div>
+</div>

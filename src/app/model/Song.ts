@@ -1,9 +1,11 @@
 export class Song {
-  private nameSong: string;
-  private lyrics: string;
-  private avatarUrl: string;
-  private mp3Url: string
-  constructor(nameSong: string, lyrics: string, avatarUrl: string, mp3Url: string) {
+  public id: number;
+  public nameSong: string;
+  public lyrics: string;
+  public avatarUrl: string;
+  public mp3Url: string
+  constructor(id: number,nameSong: string, lyrics: string, avatarUrl: string, mp3Url: string) {
+    this.id = id;
     this.nameSong = nameSong;
     this.lyrics = lyrics;
     this.avatarUrl = avatarUrl;

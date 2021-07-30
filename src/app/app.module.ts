@@ -43,17 +43,20 @@ import { UploadAvatarComponent } from './upload/upload-avatar/upload-avatar.comp
 import { UploadFileComponent } from './upload/upload-file/upload-file.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { CreateSongComponent } from './view/create-song/create-song.component';
+import { CreateSongComponent } from './view/songManage/create-song/create-song.component';
 import {httpInterceptorProviders} from './service/auth.interceptor';
 import {AuthGuard} from './service/auth.guard';
+import { PageSongComponent } from './view/songManage/page-song/page-song.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
   { path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   { path: 'login', component: LoginComponent, data: {title: 'Login'}},
-  { path: 'user-account', component: UserAccountComponent, data: { title: 'User-Account'}},
+  { path: 'user-account', component: UserAccountComponent, canActivate: [AuthGuard], data: { title: 'User-Account'}},
   { path: 'create-song', component: CreateSongComponent,canActivate: [AuthGuard], data: {title: 'Create-Song'}},
+  { path: 'page-song', component: PageSongComponent, data: {title: 'Page-Song'}},
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -62,7 +65,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, CreateSongComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, CreateSongComponent, PageSongComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -81,7 +84,7 @@ export const appRoutes: Routes = [
     NgxAudioPlayerModule,
     RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), MatProgressSpinnerModule, MatProgressBarModule
+    AngularFireModule.initializeApp(environment.firebaseConfig), MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

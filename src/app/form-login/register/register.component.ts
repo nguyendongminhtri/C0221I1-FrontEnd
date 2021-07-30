@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   success: any = {
     message: "yes"
 }
+isRegisterSuccess = false;
   constructor(private authService: AuthService) {
   }
 
@@ -46,7 +47,8 @@ export class RegisterComponent implements OnInit {
         this.status = 'The email is existed! Please try again!'
       }
       if(JSON.stringify(data)==JSON.stringify(this.success)){
-        this.status = 'Create User account success!'
+        this.isRegisterSuccess = true;
+        this.status = 'Create User account success --->'
       }
     })
   }
